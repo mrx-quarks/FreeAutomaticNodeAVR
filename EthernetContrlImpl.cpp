@@ -18,14 +18,14 @@ EthernetContrlImpl::EthernetContrlImpl(byte mac[],int port) {
  {
 	 this->ready=true;
  }
-
+/**
  for (byte thisByte = 0; thisByte < 4; thisByte++) {
      // print the value of each byte of the IP address:
      Serial.print(Ethernet.localIP()[thisByte], DEC);
      Serial.print(".");
    }
    Serial.println();
-
+**/
 
 }
 
@@ -40,22 +40,22 @@ void EthernetContrlImpl::processCommunication() {
 		  client=server->available();
 		  if (client == true) {
 
-			  Serial.println("Incoming data");
+			 // Serial.println("Incoming data");
 
 		      int size=client.read(buffer,14);
 
-		      Serial.print(size);
-		      Serial.print(" Get Package :[");
+		   //   Serial.print(size);
+		   //   Serial.print(" Get Package :[");
 
 		      //Debugging
-
+/*
 		      for (int i=0;i<14;i++)
 		      {
 		    	  Serial.print(buffer[i]);
 		    	  Serial.print(",");
 		      }
 		      Serial.print("]\n");
-
+*/
 		      processIncommingData(buffer);
 
 
@@ -69,7 +69,7 @@ void EthernetContrlImpl::processCommunication() {
 void EthernetContrlImpl::sendBack(byte* buffer) {
 
 	 if (client == true) {
-
+/*
 		 Serial.print("Response: ");
 
 		 for (int i=0;i<14;i++)
@@ -78,7 +78,7 @@ void EthernetContrlImpl::sendBack(byte* buffer) {
 		 		    	  Serial.print(",");
 		 		      }
 		 		      Serial.print("]\n");
-
+*/
 		 client.write(buffer,14);
 	 }
 

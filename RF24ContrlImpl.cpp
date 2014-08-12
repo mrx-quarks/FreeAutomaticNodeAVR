@@ -15,7 +15,7 @@ RF24ContrlImpl::RF24ContrlImpl(char localAddr,char channel) {
 
 	this->localAdrr= (0x0000000000LL|localAddr);
 
-	Serial.println("Using RF24 Impl");
+	//Serial.println("Using RF24 Impl");
 
 	radio=new RF24(9,10);
 
@@ -37,8 +37,8 @@ RF24ContrlImpl::RF24ContrlImpl(char localAddr,char channel) {
 
 	  radio->openReadingPipe(1,localAddr);
 
-	  Serial.println(localAddr);
-	  Serial.println(channel);
+	 // Serial.println(localAddr);
+	  //Serial.println(channel);
 
 	  //radio->printDetails();
 
